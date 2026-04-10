@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الأعمال المتقدمة | ABS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-silver: #C0C0C0;
+            --dark-bg: #101010;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-white); overflow-x: hidden; }
+
+        header {
+            background: rgba(16, 16, 16, 0.98);
+            padding: 10px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .main-logo { width: 60px; height: 60px; margin-left: 15px; object-fit: contain; }
+        .logo-text h1 { color: var(--primary-gold); font-size: 1.2rem; font-weight: 700; line-height: 1; }
+        .logo-text p { color: var(--secondary-silver); font-size: 0.75rem; margin-top: 5px; }
+
+        /* تنسيق زر موقع المحل */
+        .map-btn {
+            background-color: transparent;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-btn:hover {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        .hero {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            margin-top: 70px;
+        }
+
+        .hero h2 { font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 10px; }
+
+        .services-section { padding: 50px 5%; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; color: var(--primary-gold); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #333;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon-container {
+            width: 85px; height: 85px;
+            background: #fff;
+            border-radius: 15px;
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        .service-icon { width: 100%; height: 100%; object-fit: contain; }
+
+        .modal {
+            display: none; position: fixed; z-index: 9999; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); justify-content: center; align-items: center;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 40px; border-radius: 20px;
+            max-width: 500px; width: 90%;
+            text-align: center; border: 2px solid var(--primary-gold);
+            position: relative; animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .close-btn { position: absolute; top: 15px; left: 15px; font-size: 30px; cursor: pointer; color: var(--primary-gold); }
+
+        .order-btn {
+            display: inline-block; margin-top: 25px; padding: 12px 30px;
+            background: var(--primary-gold); color: #000;
+            text-decoration: none; border-radius: 25px; font-weight: bold;
+        }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background-color: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 30px; z-index: 1000; text-decoration: none;
+        }
+
+        footer { background: #0a0a0a; padding: 30px; text-align: center; border-top: 1px solid #333; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://h.top4top.io/p_3752ifqqu1.jpeg" alt="ABS Logo" class="main-logo">
+            <div class="logo-text">
+                <h1>خدمات الأعمال المتقدمة</h1>
+                <p>ADVANCED BUSINESS SERVICES</p>
+            </div>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="map-btn">
+            <i class="fas fa-map-marker-alt"></i>
+            موقع المحل
+        </a>
+    </header>
+
+    <section class="hero">
+        <h2>أنجز أعمالك بضغطة زر</h2>
+        <p>المنصة المتكاملة لجميع الخدمات الحكومية والتعقيب الإلكتروني</p>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">قائمة خدماتنا</h2>
+        <div class="services-grid" id="servicesContainer"></div>
+    </section>
+
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-icon-container" style="margin: 0 auto 20px;">
+                <img id="modalIcon" src="" class="service-icon">
+            </div>
+            <h2 id="modalTitle" style="color: var(--primary-gold); margin-bottom: 20px;"></h2>
+            <p id="modalDesc" style="line-height: 1.8; font-size: 1.1rem;"></p>
+            <a href="https://wa.me/966573805463" id="orderLink" class="order-btn" target="_blank">اطلب الخدمة عبر واتساب</a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/966573805463" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - خدمات الأعمال المتقدمة</p>
+    </footer>
+
+    <script>
+        const servicesData = [
+            { name: "خدمات أبشر", icon: "https://i.top4top.io/p_3752s1xzt1.png", desc: "تفعيل وتحديث البيانات، نقل معلومات، وتجديد الإقامات والجوازات بكل سهولة." },
+            { name: "وزارة التجارة", icon: "https://c.top4top.io/p_3752iuwq82.jpg", desc: "إصدار وتجديد السجلات التجارية، حجز الأسماء التجارية، وتعديل عقود التأسيس." },
+            { name: "تأمين المركبات", icon: "https://i.top4top.io/p_3752b1hw31.jpg", desc: "ربط التأمين الفوري للمركبات والأفراد وتجديد وثائق التأمين مع مختلف الشركات." },
+            { name: "التأمينات الاجتماعية", icon: "https://l.top4top.io/p_3752u3hdm10.jpg", desc: "إدارة ملفات المنشأة في GOSI، تسجيل وإسقاط المشتركين ومتابعة الشهادات." },
+            { name: "خدمات المرور", icon: "https://k.top4top.io/p_3752t4vyq9.jpg", desc: "تجديد الاستمارات، الفحص الدوري، نقل الملكية، وتسديد المخالفات المرورية." },
+            { name: "حساب المواطن", icon: "https://j.top4top.io/p_37520r57p8.jpg", desc: "التسجيل المباشر، تحديث البيانات، تقديم الاعتراضات ومتابعة الدفعات." },
+            { name: "خدمات ناجز", icon: "https://j.top4top.io/p_3752w7ug01.jpg", desc: "إصدار الوكالات الإلكترونية، توثيق العقود، وخدمات الإفراغ العقاري والمحاكم." },
+            { name: "الضمان المطور", icon: "https://i.top4top.io/p_3752981ee6.png", desc: "دراسة حالة الاستحقاق، التسجيل في النظام المطور، وتقديم المستندات المطلوبة." },
+            { name: "خدمات البلدية", icon: "https://f.top4top.io/p_375233rax1.jpg", desc: "إصدار رخص المحلات، رخص البناء، وتصاريح الأشغال عبر منصة بلدي." },
+            { name: "حافز وساند", icon: "https://h.top4top.io/p_3752jxmik4.jpg", desc: "التسجيل في برامج دعم الباحثين عن عمل ومتابعة المهام الأسبوعية والأهلية." },
+            { name: "الزكاة والضريبة", icon: "https://g.top4top.io/p_3752st3jm3.jpg", desc: "تقديم الإقرارات الضريبية وخدمات ضريبة القيمة المضافة والتحصيل والزكاة." },
+            { name: "البنوك والقروض", icon: "https://l.top4top.io/p_3752p70yu1.jpg", desc: "تسهيل معاملات التمويل العقاري والشخصي وتمويل المنشآت الصغيرة والمتوسطة." },
+            { name: "منصة قوى", icon: "https://f.top4top.io/p_3752w2ge41.jpg", desc: "إصدار وتجديد رخص العمل، توثيق العقود الوظيفية، وإدارة مؤشرات التوطين." },
+            { name: "القضايا العمالية", icon: "https://c.top4top.io/p_3752mikdb8.jpg", desc: "رفع الدعاوى العمالية، التسويات الودية، ومتابعة القضايا في المحاكم." },
+            { name: "وزارة الصحة", icon: "https://k.top4top.io/p_3752k1mq41.jpg", desc: "حجز المواعيد وتجديد تراخيص الممارسين والمنشآت الصحية والتقارير." },
+            { name: "خدمة وظفني", icon: "https://b.top4top.io/p_37525efve6.png", desc: "تنسيق السير الذاتية والتقديم على الوظائف الحكومية والخاصة." },
+            { name: "منصة أجير", icon: "https://a.top4top.io/p_3752ojo8n5.jpg", desc: "تنظيم العمل المؤقت، إصدار تصاريح الإعارة، وتوثيق العمل بين المنشآت." },
+            { name: "نطاقات", icon: "https://l.top4top.io/p_3752qkr2u4.jpg", desc: "تحليل مستوى التوطين وتقديم حلول لرفع نطاق المنشأة فورياً." },
+            { name: "خدمات ريف", icon: "https://k.top4top.io/p_37523pusg3.jpg", desc: "دعم الأسر المنتجة، المزارعين، وقطاع الثروة الحيوانية والسمكية." },
+            { name: "بنك التنمية", icon: "https://j.top4top.io/p_37525ljhy2.jpg", desc: "تمويل العمل الحر، الزواج، الترميم، وقروض المنشآت الناشئة." }
+        ];
+
+        const container = document.getElementById('servicesContainer');
+        const modal = document.getElementById('serviceModal');
+
+        servicesData.forEach((service) => {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.onclick = () => openModal(service);
+            card.innerHTML = `
+                <div class="service-icon-container">
+                    <img src="${service.icon}" class="service-icon">
+                </div>
+                <h3>${service.name}</h3>
+                <p>اضغط للتفاصيل</p>
+            `;
+            container.appendChild(card);
+        });
+
+        function openModal(service) {
+            document.getElementById('modalTitle').innerText = service.name;
+            document.getElementById('modalDesc').innerText = service.desc;
+            document.getElementById('modalIcon').src = service.icon;
+            document.getElementById('orderLink').href = `https://wa.me/966573805463?text=أرغب في الاستفسار عن ${service.name}`;
+            modal.classList.add('active');
+        }
+
+        function closeModal() { modal.classList.remove('active'); }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
+    </script>
+</body>
+</html>
