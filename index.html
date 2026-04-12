@@ -94,6 +94,21 @@
         .service-icon-container { width: 75px; height: 75px; background: #fff; border-radius: 12px; margin: 0 auto 15px; padding: 10px; display: flex; justify-content: center; align-items: center; }
         .service-icon { width: 100%; height: 100%; object-fit: contain; }
 
+        /* تكبير الأيقونات على الجوال */
+        @media (max-width: 768px) {
+            .service-icon-container {
+                width: 100px;
+                height: 100px;
+                padding: 12px;
+            }
+            .service-card h3 {
+                font-size: 1rem;
+            }
+            .service-card p {
+                font-size: 0.9rem;
+            }
+        }
+
         /* Modal */
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 11000; display: none; justify-content: center; align-items: center; }
         .modal-content { background: var(--card-bg); padding: 35px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; border: 2px solid var(--primary-gold); position: relative; animation: popIn 0.3s ease; }
@@ -110,7 +125,12 @@
         .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 9000; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .about-section { background: var(--card-bg); margin: 20px 5% 0; padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #333; }
         .about-section h3 { color: var(--primary-gold); margin-bottom: 15px; }
-        @media (max-width: 480px) { .hero h2 { font-size: 1.5rem; } .lang-switch-btn span, .map-btn span { display: none; } .lang-switch-btn i, .map-btn i { margin: 0; } .lang-switch-btn, .map-btn { padding: 6px 10px; } }
+        @media (max-width: 480px) { 
+            .hero h2 { font-size: 1.5rem; } 
+            .lang-switch-btn span, .map-btn span { display: none; } 
+            .lang-switch-btn i, .map-btn i { margin: 0; } 
+            .lang-switch-btn, .map-btn { padding: 6px 10px; } 
+        }
     </style>
 </head>
 <body>
