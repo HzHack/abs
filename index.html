@@ -87,21 +87,47 @@
         }
         #searchInput::placeholder { color: var(--text-gray); }
 
-        /* الخدمات */
+        /* الخدمات - تكبير الصور */
         .services-section { padding: 30px 5% 40px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
-        .service-card { background: var(--card-bg); padding: 20px 10px; border-radius: 15px; text-align: center; cursor: pointer; border: 1px solid #333; transition: 0.3s; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .service-card { background: var(--card-bg); padding: 25px 12px; border-radius: 20px; text-align: center; cursor: pointer; border: 1px solid #333; transition: 0.3s; }
         .service-card:hover { border-color: var(--primary-gold); transform: translateY(-5px); }
-        .service-icon-container { width: 75px; height: 75px; background: #fff; border-radius: 12px; margin: 0 auto 15px; padding: 10px; display: flex; justify-content: center; align-items: center; }
+        /* حاوية الأيقونة أكبر */
+        .service-icon-container { 
+            width: 100px; 
+            height: 100px; 
+            background: #fff; 
+            border-radius: 20px; 
+            margin: 0 auto 18px; 
+            padding: 12px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            transition: 0.2s;
+        }
         .service-icon { width: 100%; height: 100%; object-fit: contain; }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-gold); }
+        .service-card p { font-size: 0.85rem; color: var(--text-gray); }
 
-        /* Modal */
+        /* Modal مع تكبير الصورة */
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 11000; display: none; justify-content: center; align-items: center; }
         .modal-content { background: var(--card-bg); padding: 35px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; border: 2px solid var(--primary-gold); position: relative; animation: popIn 0.3s ease; }
         @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .close-btn { position: absolute; top: 10px; left: 15px; width: 36px; height: 36px; background: rgba(212, 175, 55, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-gold); font-size: 28px; }
         .close-btn:hover { background: var(--primary-gold); color: #000; }
         .order-btn { display: inline-block; margin-top: 20px; padding: 12px 30px; background: var(--primary-gold); color: #000; text-decoration: none; border-radius: 25px; font-weight: bold; }
+        .modal-icon-large {
+            width: 110px;
+            height: 110px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-icon-large img { width: 100%; height: 100%; object-fit: contain; }
 
         /* فوتر - جميع الحقوق تحت الصفحة */
         footer {
@@ -161,6 +187,9 @@
             .contact-icons a { padding: 5px 10px; font-size: 0.75rem; }
             .contact-icons i { font-size: 1rem; }
             .copyright { font-size: 0.7rem; }
+            .service-icon-container { width: 85px; height: 85px; padding: 8px; }
+            .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+            .service-card h3 { font-size: 1rem; }
         }
     </style>
 </head>
@@ -216,8 +245,8 @@
 <div class="modal" id="serviceModal">
     <div class="modal-content">
         <div class="close-btn" onclick="closeModal()">×</div>
-        <div style="width: 80px; height: 80px; background: white; border-radius: 10px; margin: 0 auto 20px; padding: 8px;">
-            <img id="modalIcon" src="" style="width: 100%; height: 100%; object-fit: contain;">
+        <div class="modal-icon-large">
+            <img id="modalIcon" src="" alt="service icon">
         </div>
         <h2 id="modalTitle" style="color: var(--primary-gold); margin-bottom: 15px;"></h2>
         <p id="modalDesc" style="line-height: 1.8;"></p>
@@ -313,7 +342,7 @@
           desc_en:"Issue commercial shop licenses, building permits, excavation permits, and renew licenses via Balady platform.",
           desc_bn:"বালাদি প্ল্যাটফর্মের মাধ্যমে বাণিজ্যিক দোকানের লাইসেন্স, বিল্ডিং পারমিট, খনন পারমিট এবং লাইসেন্স পুনর্নবীকরণ ইস্যু করুন।",
           desc_ur:"بالدی پلیٹ فارم کے ذریعے تجارتی دکانوں کے لائسنس، تعمیراتی اجازت نامے، کھدائی کے اجازت نامے جاری کریں اور لائسنس کی تجدید کریں۔",
-          desc_hi:"बलदी प्लेटफॉर्म के माध्यम से वाणिज्यिक दुकान लाइसेंस, निर्माण परमिट, उत्खनन परमिट जारी करें और लाइसेंस का नवीनीकरण करें।",
+          desc_hi:"बलदी प्लेटफॉर्म के माध्यম से वाणिज्यिक दुकान लाइसेंस, निर्माण परमिट, उत्खनन परमिट जारी करें और लाइसेंस का नवीनीकरण करें।",
           desc_tl:"Mag-isyu ng mga lisensya sa komersyal na tindahan, mga permiso sa gusali, mga permiso sa paghuhukay, at i-renew ang mga lisensya sa pamamagitan ng Balady platform." },
         { id:10, icon:"https://h.top4top.io/p_3752jxmik4.jpg",
           ar:"حافز وساند", en:"Hafiz & Saned", bn:"হাফিজ ও সানেদ", ur:"حافز و ساند", hi:"हाफ़िज़ और सानेद", tl:"Hafiz at Saned",
