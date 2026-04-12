@@ -10,21 +10,25 @@
         :root {
             --primary-gold: #D4AF37;
             --secondary-silver: #C0C0C0;
-            --dark-bg: #0a0a0a;
-            --card-bg: rgba(26, 26, 26, 0.9);
+            --card-bg: rgba(26, 26, 26, 0.85);
             --text-white: #ffffff;
-            --text-gray: #d0d0d0;
+            --text-gray: #e0e0e0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        
-        /* خلفية عامة للصفحة بالصورة الجديدة */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #000;
+        }
         body {
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://g.top4top.io/p_3753oeu3d1.jpg');
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://g.top4top.io/p_3753oeu3d1.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
+            background-repeat: no-repeat;
             color: var(--text-white);
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* شاشة اللغات */
@@ -37,9 +41,7 @@
         }
         #language-screen.hide { opacity: 0; visibility: hidden; pointer-events: none; }
         .lang-logo {
-            width: 170px;  /* تكبير الشعار */
-            margin-bottom: 30px;
-            border-radius: 25px;
+            width: 170px; margin-bottom: 30px; border-radius: 25px;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
             animation: gentleMove 2.5s ease-in-out infinite;
         }
@@ -70,13 +72,8 @@
             backdrop-filter: blur(5px);
         }
         header.nav-up { transform: translateY(-110%); }
-        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .main-logo { 
-            width: 70px;  /* تكبير الشعار */
-            height: 70px; 
-            object-fit: contain;
-            transition: 0.2s;
-        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .main-logo { width: 70px; height: 70px; object-fit: contain; }
         .logo-text h1 { color: var(--primary-gold); font-size: 1.3rem; font-weight: 700; }
         .header-buttons { display: flex; gap: 12px; }
         .map-btn, .lang-switch-btn {
@@ -85,16 +82,16 @@
             cursor: pointer; font-size: 0.9rem; font-weight: 600;
             backdrop-filter: blur(4px);
         }
-        .map-btn:hover, .lang-switch-btn:hover { background: var(--primary-gold); color: #000; border-color: #000; }
+        .map-btn:hover, .lang-switch-btn:hover { background: var(--primary-gold); color: #000; }
 
-        /* Hero - خلفية شفافة لتبقى الصورة العامة هي الخلفية */
+        /* Hero */
         .hero {
             height: 35vh; display: flex; flex-direction: column; justify-content: center;
             align-items: center; text-align: center;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3);
             margin-top: 85px;
             border-radius: 0 0 30px 30px;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(2px);
         }
         .hero h2 { font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 10px; text-shadow: 0 2px 5px black; }
         .hero p { color: var(--text-white); font-size: 1rem; text-shadow: 0 1px 3px black; }
@@ -108,23 +105,23 @@
         }
         #searchInput::placeholder { color: var(--text-gray); }
 
-        /* الخدمات - خلفية شفافة لتظهر الصورة خلفها */
+        /* الخدمات */
         .services-section { padding: 20px 5% 50px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
-        .service-card { 
-            background: rgba(26, 26, 26, 0.85); 
-            padding: 25px 12px; 
-            border-radius: 25px; 
-            text-align: center; 
-            cursor: pointer; 
-            border: 1px solid rgba(212, 175, 55, 0.5); 
+        .service-card {
+            background: rgba(26, 26, 26, 0.85);
+            padding: 25px 12px;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.5);
             transition: 0.3s;
             backdrop-filter: blur(5px);
         }
         .service-card:hover { border-color: var(--primary-gold); transform: translateY(-8px); background: rgba(26,26,26,0.95); }
-        .service-icon-container { 
-            width: 90px; height: 90px; background: #fff; border-radius: 20px; 
-            margin: 0 auto 18px; padding: 12px; 
+        .service-icon-container {
+            width: 90px; height: 90px; background: #fff; border-radius: 20px;
+            margin: 0 auto 18px; padding: 12px;
             display: flex; justify-content: center; align-items: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
@@ -132,7 +129,6 @@
         .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary-gold); }
         .service-card p { font-size: 0.85rem; color: var(--text-gray); }
 
-        /* تكبير الأيقونات على الجوال */
         @media (max-width: 768px) {
             .service-icon-container { width: 110px; height: 110px; padding: 15px; }
             .service-card h3 { font-size: 1rem; }
@@ -240,6 +236,7 @@
 </footer>
 
 <script>
+    // ---------------------- الخدمات الكاملة (20 خدمة) ----------------------
     const servicesData = [
         { id:1, icon:"https://i.top4top.io/p_3752s1xzt1.png",
           ar:"خدمات أبشر", en:"Absher Services", bn:"আবশের সেবা", ur:"ابشر خدمات", hi:"अबशेर सेवाएं", tl:"Mga Serbisyo ng Absher",
@@ -357,7 +354,7 @@
           ar:"وزارة الصحة", en:"MOH Services", bn:"স্বাস্থ্য মন্ত্রণালয় সেবা", ur:"وزارت صحت کی خدمات", hi:"स्वास्थ्य मंत्रालय सेवाएं", tl:"Mga Serbisyo ng MOH",
           desc_ar:"حجز المواعيد في المستشفيات، تجديد تراخيص الممارسين الصحيين، تراخيص المنشآت الطبية، واستخراج التقارير الطبية.",
           desc_en:"Book hospital appointments, renew health practitioner licenses, medical facility licenses, and extract medical reports.",
-          desc_bn:"হাসপাতালের অ্যাপয়েন্টমেন্ট বুক করুন, স্বাস্থ্য অনুশীলনকারীদের লাইসেন্স পুনর্নবীকরণ করুন, চিকিৎসা সুবিধার লাইসنس এবং মেডিকেল রিপোর্ট সংগ্রহ করুন।",
+          desc_bn:"হাসপাতালের অ্যাপয়েন্টমেন্ট বুক করুন, স্বাস্থ্য অনুশীলনকারীদের লাইসেন্স পুনর্নবীকরণ করুন, চিকিৎসা সুবিধার লাইসেন্স এবং মেডিকেল রিপোর্ট সংগ্রহ করুন।",
           desc_ur:"ہسپتال کی اپوائنٹمنٹ بک کریں، ہیلتھ پریکٹیشنرز کے لائسنس کی تجدید کریں، طبی سہولیات کے لائسنس اور میڈیکل رپورٹس حاصل کریں۔",
           desc_hi:"अस्पताल की अपॉइंटमेंट बुक करें, स्वास्थ्य चिकित्सक लाइसेंस का नवीनीकरण करें, चिकित्सा सुविधा लाइसेंस और मेडिकल रिपोर्ट निकालें।",
           desc_tl:"Mag-book ng mga appointment sa ospital, i-renew ang mga lisensya ng health practitioner, mga lisensya ng pasilidad na medikal, at kumuha ng mga medikal na ulat." },
@@ -403,6 +400,7 @@
           desc_tl:"Self-employment financing, mga pautang sa kasal, pagpopondo sa pagsasaayos ng bahay, at mga pautang sa startup at maliit na negosyo." }
     ];
 
+    // ---------------------- الترجمات العامة ----------------------
     const translations = {
         ar: { title: "خدمات الأعمال المتقدمة", sub: "المنصة المتكاملة لجميع الخدمات الحكومية، الشخصية، الشركات والمؤسسات", map: "موقع المحل", switchLang: "تغيير اللغة", btn: "اطلب الآن عبر واتساب", footer: "جميع الحقوق محفوظة © 2026", aboutTitle: "من نحن", aboutText: "نقدم حلولاً سريعة وموثوقة لإنجاز معاملاتك الحكومية والخدمات الشخصية وخدمات الشركات بأعلى جودة. فريقنا متخصص في التعقيب والخدمات الرقمية.", orderMsg: "أرغب في الاستفسار عن ", searchPlaceholder: "ابحث عن خدمة...", details: "تفاصيل" },
         en: { title: "Advanced Business Services", sub: "Integrated platform for government, personal, and corporate services", map: "Location", switchLang: "Change Language", btn: "Order via WhatsApp", footer: "All Rights Reserved © 2026", aboutTitle: "About Us", aboutText: "We provide fast and reliable solutions for your government and service transactions with the highest quality. Our team specializes in follow-up and digital services.", orderMsg: "I want to inquire about ", searchPlaceholder: "Search for a service...", details: "Details" },
