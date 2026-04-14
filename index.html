@@ -79,103 +79,94 @@
         .hero h2 { font-size: 2rem; color: var(--primary-gold); margin-bottom: 10px; }
         .hero p { color: var(--secondary-silver); font-size: 0.9rem; }
 
-        /* البحث */
+        /* البحث والفلتر */
         .search-section { padding: 20px 5% 0 5%; }
         #searchInput {
             width: 100%; padding: 12px 20px; border-radius: 50px; border: 1px solid var(--primary-gold);
             background: var(--card-bg); color: white; font-size: 1rem; outline: none;
         }
         #searchInput::placeholder { color: var(--text-gray); }
-
-        /* الخدمات - تكبير الصور */
-        .services-section { padding: 30px 5% 40px; }
+        .filters {
+            display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 5% 0; justify-content: center;
+        }
+        .filter-btn {
+            background: var(--card-bg); border: 1px solid #444; color: var(--text-white);
+            padding: 6px 18px; border-radius: 30px; cursor: pointer; transition: 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-gold); color: #000; border-color: var(--primary-gold);
+        }
+        .results-count {
+            text-align: center; margin: 15px 5% 0; font-size: 0.9rem; color: var(--secondary-silver);
+        }
+        /* الخدمات */
+        .services-section { padding: 20px 5% 40px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
         .service-card { background: var(--card-bg); padding: 25px 12px; border-radius: 20px; text-align: center; cursor: pointer; border: 1px solid #333; transition: 0.3s; }
         .service-card:hover { border-color: var(--primary-gold); transform: translateY(-5px); }
-        /* حاوية الأيقونة أكبر */
+        /* حاوية الأيقونة بخلفية بيضاء وإطار أبيض */
         .service-icon-container { 
             width: 100px; 
             height: 100px; 
-            background: #fff; 
-            border-radius: 20px; 
+            background: #ffffff; /* خلفية بيضاء */
+            border-radius: 30px;   
+            border: 1px solid #ffffff; /* إطار أبيض (يمكن تغييره لرمادي إذا أردت) */
             margin: 0 auto 18px; 
-            padding: 12px; 
+            padding: 8px; 
             display: flex; 
             justify-content: center; 
             align-items: center;
             transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .service-icon { width: 100%; height: 100%; object-fit: contain; }
         .service-card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-gold); }
         .service-card p { font-size: 0.85rem; color: var(--text-gray); }
 
-        /* Modal مع تكبير الصورة */
+        /* مودال - خلفية بيضاء وإطار أبيض */
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 11000; display: none; justify-content: center; align-items: center; }
         .modal-content { background: var(--card-bg); padding: 35px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; border: 2px solid var(--primary-gold); position: relative; animation: popIn 0.3s ease; }
         @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .close-btn { position: absolute; top: 10px; left: 15px; width: 36px; height: 36px; background: rgba(212, 175, 55, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-gold); font-size: 28px; }
         .close-btn:hover { background: var(--primary-gold); color: #000; }
         .order-btn { display: inline-block; margin-top: 20px; padding: 12px 30px; background: var(--primary-gold); color: #000; text-decoration: none; border-radius: 25px; font-weight: bold; }
-        .modal-icon-large {
-            width: 110px;
-            height: 110px;
-            background: white;
-            border-radius: 20px;
-            margin: 0 auto 20px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
+        .modal-icon-large { 
+            width: 110px; 
+            height: 110px; 
+            background: #ffffff; 
+            border-radius: 30px; 
+            border: 1px solid #ffffff;
+            margin: 0 auto 20px; 
+            padding: 8px; 
+            display: flex; 
+            align-items: center; 
             justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .modal-icon-large img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* فوتر - جميع الحقوق تحت الصفحة */
+        /* زر العودة للأعلى */
+        #scrollTopBtn {
+            position: fixed; bottom: 90px; right: 25px; background: var(--primary-gold); color: #000;
+            width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center;
+            font-size: 24px; cursor: pointer; z-index: 9000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        #scrollTopBtn:hover { background: #fff; }
+
+        /* فوتر */
         footer {
-            background: #0a0a0a;
-            padding: 30px 20px 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-            margin-top: auto;
+            background: #0a0a0a; padding: 30px 20px 20px; text-align: center; border-top: 1px solid #333; margin-top: auto;
         }
         .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+            display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;
         }
         .contact-icons a {
-            color: var(--primary-gold);
-            font-size: 1rem;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            background: rgba(212,175,55,0.08);
-            padding: 8px 14px;
-            border-radius: 40px;
-            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--primary-gold); font-size: 1rem; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px;
+            text-decoration: none; background: rgba(212,175,55,0.08); padding: 8px 14px; border-radius: 40px; border: 1px solid rgba(212,175,55,0.3);
         }
-        .contact-icons a:hover {
-            background: var(--primary-gold);
-            color: #000;
-            border-color: var(--primary-gold);
-            transform: translateY(-2px);
-        }
+        .contact-icons a:hover { background: var(--primary-gold); color: #000; border-color: var(--primary-gold); transform: translateY(-2px); }
         .contact-icons i { font-size: 1.2rem; }
-        .copyright {
-            font-size: 0.85rem;
-            color: #aaa;
-            border-top: 1px solid #2a2a2a;
-            padding-top: 20px;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-        }
-        .copyright p {
-            margin: 0;
-            line-height: 1.6;
-        }
+        .copyright { font-size: 0.85rem; color: #aaa; border-top: 1px solid #2a2a2a; padding-top: 20px; margin-top: 10px; }
         .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 9000; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .about-section { background: var(--card-bg); margin: 20px 5% 0; padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #333; }
         .about-section h3 { color: var(--primary-gold); margin-bottom: 15px; }
@@ -185,11 +176,11 @@
             .lang-switch-btn i, .map-btn i { margin: 0; }
             .lang-switch-btn, .map-btn { padding: 6px 10px; }
             .contact-icons a { padding: 5px 10px; font-size: 0.75rem; }
-            .contact-icons i { font-size: 1rem; }
-            .copyright { font-size: 0.7rem; }
-            .service-icon-container { width: 85px; height: 85px; padding: 8px; }
-            .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-            .service-card h3 { font-size: 1rem; }
+            .service-icon-container { width: 85px; height: 85px; border-radius: 25px; }
+            .modal-icon-large { width: 90px; height: 90px; border-radius: 25px; }
+            .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .filter-btn { padding: 4px 12px; font-size: 0.8rem; }
+            #scrollTopBtn { bottom: 80px; right: 15px; width: 40px; height: 40px; font-size: 20px; }
         }
     </style>
 </head>
@@ -213,7 +204,7 @@
         <div class="logo-text"><h1 id="txt-logo-title">خدمات الأعمال المتقدمة</h1></div>
     </div>
     <div class="header-buttons">
-        <a href="https://maps.app.goo.gl/5vXUoq3dZqjZtXj46" target="_blank" class="map-btn">
+        <a href="https://maps.app.goo.gl/5vXUoq3dZqjZtXj46" target="_blank" rel="noopener noreferrer" class="map-btn">
             <i class="fas fa-map-marker-alt"></i> <span id="txt-map-label">موقع المحل</span>
         </a>
         <div class="lang-switch-btn" id="langSwitchBtn">
@@ -232,6 +223,9 @@
         <input type="text" id="searchInput" placeholder="ابحث عن خدمة...">
     </section>
 
+    <div class="filters" id="filtersContainer"></div>
+    <div class="results-count" id="resultsCount"></div>
+
     <section class="services-section">
         <div class="services-grid" id="servicesContainer"></div>
     </section>
@@ -245,210 +239,116 @@
 <div class="modal" id="serviceModal">
     <div class="modal-content">
         <div class="close-btn" onclick="closeModal()">×</div>
-        <div class="modal-icon-large">
-            <img id="modalIcon" src="" alt="service icon">
-        </div>
+        <div class="modal-icon-large"><img id="modalIcon" src="" alt="service icon"></div>
         <h2 id="modalTitle" style="color: var(--primary-gold); margin-bottom: 15px;"></h2>
         <p id="modalDesc" style="line-height: 1.8;"></p>
-        <a href="#" id="orderLink" class="order-btn" target="_blank">اطلب الآن</a>
+        <a href="#" id="orderLink" class="order-btn" target="_blank" rel="noopener noreferrer">اطلب الآن</a>
     </div>
 </div>
 
-<a href="https://wa.me/966573805463" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/966573805463" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<div id="scrollTopBtn"><i class="fas fa-arrow-up"></i></div>
 
 <footer>
     <div class="contact-icons">
-        <a href="https://wa.me/966573805463" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="tel:+966573805463"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
-        <a href="mailto:info@abs-sa.com"><i class="fas fa-envelope"></i> info@abs-sa.com</a>
+        <a href="https://wa.me/966573805463" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="tel:+966573805463" rel="noopener noreferrer"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
+        <a href="mailto:info@abs-sa.com" rel="noopener noreferrer"><i class="fas fa-envelope"></i> info@abs-sa.com</a>
         <a href="https://www.tiktok.com/@abs.office?_r=1&_t=ZS-95TehJd2dyi" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
         <a href="https://www.instagram.com/absoffice?utm_source=qr&igsh=ZzNrdTJ4bHlod3R0" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="https://www.snapchat.com/add/abs_office?share_id=bKGIRvYwA8s&locale=ar-SA" target="_blank" rel="noopener noreferrer"><i class="fab fa-snapchat"></i> Snapchat</a>
     </div>
-    <div class="copyright">
-        <p id="txt-footer">جميع الحقوق محفوظة © 2026 - خدمات الأعمال المتقدمة</p>
-    </div>
+    <div class="copyright"><p id="txt-footer">جميع الحقوق محفوظة © 2026 - خدمات الأعمال المتقدمة</p></div>
 </footer>
 
 <script>
+    // بيانات الخدمات (نفسها مع التصنيفات)
     const servicesData = [
-        { id:1, icon:"https://i.top4top.io/p_3752s1xzt1.png",
+        { id:1, icon:"https://i.top4top.io/p_3752s1xzt1.png", category:"government",
           ar:"خدمات أبشر", en:"Absher Services", bn:"আবশের সেবা", ur:"ابشر خدمات", hi:"अबशेर सेवाएं", tl:"Mga Serbisyo ng Absher",
           desc_ar:"تفعيل وتحديث البيانات الشخصية، نقل معلومات العمالة، تجديد الإقامات والجوازات، وطباعة سجل الأسرة بكل سهولة.",
-          desc_en:"Activate and update personal data, transfer labor info, renew iqamas and passports, and print family register.",
-          desc_bn:"ব্যক্তিগত তথ্য সক্রিয় ও আপডেট করুন, শ্রম তথ্য স্থানান্তর করুন, ইকামা ও পাসপোর্ট পুনর্নবীকরণ করুন এবং পরিবার রেজিস্টার প্রিন্ট করুন।",
-          desc_ur:"ذاتی ڈیٹا کو فعال اور اپ ڈیٹ کریں، مزدور کی معلومات منتقل کریں، اقامات اور پاسپورٹ کی تجدید کریں، اور خاندانی رجسٹر پرنٹ کریں۔",
-          desc_hi:"व्यक्तिगत डेटा सक्रिय और अपडेट करें, श्रम सूचना स्थानांतरित करें, इकामा और पासपोर्ट नवीनीकृत करें, और परिवार रजिस्टर प्रिंट करें।",
-          desc_tl:"I-activate at i-update ang personal na data, ilipat ang impormasyon ng manggagawa, i-renew ang iqama at pasaporte, at i-print ang family register." },
-        { id:2, icon:"https://c.top4top.io/p_3752iuwq82.jpg",
+          desc_en:"Activate and update personal data, transfer labor info, renew iqamas and passports, and print family register." },
+        { id:2, icon:"https://c.top4top.io/p_3752iuwq82.jpg", category:"government",
           ar:"وزارة التجارة", en:"Ministry of Commerce", bn:"বাণিজ্য মন্ত্রণালয়", ur:"وزارت تجارت", hi:"वाणिज्य मंत्रालय", tl:"Ministro ng Komersyo",
-          desc_ar:"إصدار وتجديد السجلات التجارية، حجز الأسماء التجارية، تعديل عقود التأسيس، واستخراج شهادات السجل التجاري.",
-          desc_en:"Issue and renew commercial registers, reserve trade names, amend founding contracts, and extract commercial register certificates.",
-          desc_bn:"বাণিজ্যিক রেজিস্টার ইস্যু ও নবায়ন, ট্রেড নাম সংরক্ষণ, প্রতিষ্ঠানের চুক্তি সংশোধন, এবং বাণিজ্যিক রেজিস্টার সার্টিফিকেট সংগ্রহ করুন।",
-          desc_ur:"تجارتی رجسٹر جاری اور تجدید کریں، تجارتی نام محفوظ کریں، تاسیس کے معاہدوں میں ترمیم کریں، اور تجارتی رجسٹر سرٹیفکیٹ حاصل کریں۔",
-          desc_hi:"वाणिज्यिक रजिस्टर जारी और नवीनीकृत करें, व्यापार नाम आरक्षित करें, स्थापना अनुबंधों में संशोधन करें, और वाणिज्यिक रजिस्टर प्रमाणपत्र निकालें।",
-          desc_tl:"Mag-isyu at mag-renew ng mga rehistro ng komersyo, mag-reserba ng mga pangalan ng kalakalan, baguhin ang mga kontrata ng pundasyon, at kumuha ng mga sertipiko ng rehistro ng komersyo." },
-        { id:3, icon:"https://i.top4top.io/p_3752b1hw31.jpg",
+          desc_ar:"إصدار وتجديد السجلات التجارية، حجز الأسماء التجارية، تعديل عقود التأسيس، واستخراج شهادات السجل التجاري." },
+        { id:3, icon:"https://i.top4top.io/p_3752b1hw31.jpg", category:"insurance",
           ar:"تأمين المركبات", en:"Vehicle Insurance", bn:"যানবাহন বীমা", ur:"گاڑی انشورنس", hi:"वाहन बीमा", tl:"Seguro ng Sasakyan",
-          desc_ar:"ربط التأمين الفوري للمركبات وتجديد وثائق التأمين الشامل ضد الغير والبدن بأفضل الأسعار.",
-          desc_en:"Instant vehicle insurance binding and renewal of comprehensive and third-party insurance at best prices.",
-          desc_bn:"তাত্ক্ষণিক গাড়ি বীমা বাঁধাই এবং সেরা দামে বিস্তৃত ও তৃতীয় পক্ষের বীমা পুনর্নবীকরণ।",
-          desc_ur:"فوری گاڑی انشورنس اور بہترین قیمتوں پر جامع اور تھرڈ پارٹی انشورنس کی تجدید۔",
-          desc_hi:"त्वरित वाहन बीमा बाइंडिंग और सर्वोत्तम मूल्यों पर व्यापक और थर्ड-पार्टी बीमा का नवीनीकरण।",
-          desc_tl:"Instant na pagbubuklod ng seguro ng sasakyan at pag-renew ng komprehensibo at third-party na seguro sa pinakamahusay na presyo." },
-        { id:4, icon:"https://l.top4top.io/p_3752u3hdm10.jpg",
+          desc_ar:"ربط التأمين الفوري للمركبات وتجديد وثائق التأمين الشامل ضد الغير والبدن بأفضل الأسعار." },
+        { id:4, icon:"https://l.top4top.io/p_3752u3hdm10.jpg", category:"government",
           ar:"التأمينات الاجتماعية", en:"GOSI", bn:"জিওএসআই", ur:"جوسی", hi:"जीओएसआई", tl:"GOSI",
-          desc_ar:"إدارة ملفات المنشأة في GOSI، تسجيل وإسقاط العمال، رفع الأجور، ومتابعة الشهادات والمدد السابقة.",
-          desc_en:"Manage establishment files in GOSI, register and drop workers, raise wages, and follow up on certificates and previous periods.",
-          desc_bn:"GOSI-তে প্রতিষ্ঠানের ফাইল পরিচালনা, শ্রমিক নিবন্ধন ও বাদ দেওয়া, মজুরি বৃদ্ধি, এবং সার্টিফিকেট ও পূর্ববর্তী সময়কাল অনুসরণ।",
-          desc_ur:"GOSI میں ادارے کی فائلوں کا انتظام کریں، مزدوروں کو رجسٹر اور خارج کریں، اجرتوں میں اضافہ کریں، اور سرٹیفکیٹس اور پچھلی مدت کی پیروی کریں۔",
-          desc_hi:"GOSI में प्रतिष्ठान फ़ाइलों का प्रबंधन करें, श्रमिकों को पंजीकृत और हटाएं, मजदूरी बढ़ाएं, और प्रमाणपत्रों और पिछली अवधियों का पालन करें।",
-          desc_tl:"Pamahalaan ang mga file ng establisimyento sa GOSI, magrehistro at mag-drop ng mga manggagawa, magtaas ng sahod, at sundan ang mga sertipiko at nakaraang panahon." },
-        { id:5, icon:"https://k.top4top.io/p_3752t4vyq9.jpg",
+          desc_ar:"إدارة ملفات المنشأة في GOSI، تسجيل وإسقاط العمال، رفع الأجور، ومتابعة الشهادات والمدد السابقة." },
+        { id:5, icon:"https://k.top4top.io/p_3752t4vyq9.jpg", category:"government",
           ar:"خدمات المرور", en:"Traffic Services", bn:"ট্রাফিক সেবা", ur:"ٹریفک خدمات", hi:"यातायात सेवाएं", tl:"Mga Serbisyo sa Trapiko",
-          desc_ar:"تجديد استمارة السيارة، إصدار رخصة قيادة، نقل ملكية المركبات، دفع المخالفات، والفحص الدوري.",
-          desc_en:"Renew vehicle registration, issue driving license, transfer vehicle ownership, pay fines, and periodic inspection.",
-          desc_bn:"গাড়ির নিবন্ধন পুনর্নবীকরণ, ড্রাইভিং লাইসেন্স ইস্যু, গাড়ির মালিকানা স্থানান্তর, জরিমানা পরিশোধ, এবং পর্যায়ক্রমিক পরিদর্শন।",
-          desc_ur:"گاڑی کی رجسٹریشن کی تجدید، ڈرائیونگ لائسنس جاری کریں، گاڑی کی ملکیت منتقل کریں، جرمانے ادا کریں، اور متواتر معائنہ کریں۔",
-          desc_hi:"वाहन पंजीकरण नवीनीकृत करें, ड्राइविंग लाइसेंस जारी करें, वाहन स्वामित्व हस्तांतरित करें, जुर्माना भुगतान करें, और आवधिक निरीक्षण करें।",
-          desc_tl:"I-renew ang rehistro ng sasakyan, mag-isyu ng lisensya sa pagmamaneho, ilipat ang pagmamay-ari ng sasakyan, magbayad ng multa, at pana-panahong inspeksyon." },
-        { id:6, icon:"https://j.top4top.io/p_37520r57p8.jpg",
+          desc_ar:"تجديد استمارة السيارة، إصدار رخصة قيادة، نقل ملكية المركبات، دفع المخالفات، والفحص الدوري." },
+        { id:6, icon:"https://j.top4top.io/p_37520r57p8.jpg", category:"government",
           ar:"حساب المواطن", en:"Citizen Account", bn:"নাগরিক অ্যাকাউন্ট", ur:"شہری اکاؤنٹ", hi:"नागरिक खाता", tl:"Account ng Mamamayan",
-          desc_ar:"التسجيل المباشر في حساب المواطن، تحديث البيانات، تقديم الاعتراضات، ومتابعة الأهلية والدفعات.",
-          desc_en:"Direct registration in Citizen Account, data update, submit objections, follow up on eligibility and payments.",
-          desc_bn:"নাগরিক অ্যাকাউন্টে সরাসরি নিবন্ধন, তথ্য আপডেট, আপত্তি জমা, যোগ্যতা এবং অর্থপ্রদান অনুসরণ।",
-          desc_ur:"شہری اکاؤنٹ میں براہ راست اندراج، ڈیٹا اپ ڈیٹ، اعتراضات جمع کروائیں، اہلیت اور ادائیگیوں کی پیروی کریں۔",
-          desc_hi:"नागरिक खाते में सीधा पंजीकरण, डेटा अपडेट, आपत्तियाँ प्रस्तुत करें, पात्रता और भुगतान का पालन करें।",
-          desc_tl:"Direktang pagpaparehistro sa Account ng Mamamayan, pag-update ng data, magsumite ng mga pagtutol, sundan ang pagiging karapat-dapat at mga pagbabayad." },
-        { id:7, icon:"https://j.top4top.io/p_3752w7ug01.jpg",
+          desc_ar:"التسجيل المباشر في حساب المواطن، تحديث البيانات، تقديم الاعتراضات، ومتابعة الأهلية والدفعات." },
+        { id:7, icon:"https://j.top4top.io/p_3752w7ug01.jpg", category:"government",
           ar:"خدمات ناجز", en:"Najiz (Justice)", bn:"নাজিজ", ur:"نجز", hi:"नजीज़", tl:"Najiz",
-          desc_ar:"إصدار الوكالات الإلكترونية، توثيق العقود، رفع الدعاوى، وخدمات الإفراغ العقاري والمحاكم.",
-          desc_en:"Issue electronic powers of attorney, notarize contracts, file lawsuits, and real estate and court services.",
-          desc_bn:"ইলেকট্রনিক পাওয়ার অফ অ্যাটর্নি ইস্যু করুন, চুক্তি নোটারাইজ করুন, মামলা দায়ের করুন, এবং রিয়েল এস্টেট ও আদালত পরিষেবা।",
-          desc_ur:"الیکٹرانک پاور آف اٹارنی جاری کریں، معاہدوں کی توثیق کریں، مقدمہ دائر کریں، اور رئیل اسٹیٹ اور عدالتی خدمات۔",
-          desc_hi:"इलेक्ट्रॉनिक पावर ऑफ अटॉर्नी जारी करें, अनुबंधों का सत्यापन करें, मुकदमे दायर करें, और रियल एस्टेट और अदालती सेवाएं।",
-          desc_tl:"Mag-isyu ng elektronikong kapangyarihan ng abogado, i-notaryo ang mga kontrata, maghain ng mga kaso, at mga serbisyo sa real estate at korte." },
-        { id:8, icon:"https://i.top4top.io/p_3752981ee6.png",
+          desc_ar:"إصدار الوكالات الإلكترونية، توثيق العقود، رفع الدعاوى، وخدمات الإفراغ العقاري والمحاكم." },
+        { id:8, icon:"https://i.top4top.io/p_3752981ee6.png", category:"government",
           ar:"الضمان المطور", en:"Social Security", bn:"সামাজিক নিরাপত্তা", ur:"سماجی تحفظ", hi:"सामाजिक सुरक्षा", tl:"Seguridad Panlipunan",
-          desc_ar:"التسجيل في نظام الضمان الاجتماعي المطور، دراسة حالة الاستحقاق، وتقديم المستندات وإضافة التابعين.",
-          desc_en:"Registration in the advanced social security system, eligibility study, document submission and adding dependents.",
-          desc_bn:"উন্নত সামাজিক নিরাপত্তা ব্যবস্থায় নিবন্ধন, যোগ্যতা অধ্যয়ন, নথি জমা এবং নির্ভরশীল যোগ করা।",
-          desc_ur:"سماجی تحفظ کے جدید نظام میں اندراج، اہلیت کا مطالعہ، دستاویزات جمع کروانا اور انحصار کرنے والوں کو شامل کرنا۔",
-          desc_hi:"उन्नत सामाजिक सुरक्षा प्रणाली में पंजीकरण, पात्रता अध्ययन, दस्तावेज़ जमा करना और आश्रितों को जोड़ना।",
-          desc_tl:"Pagpaparehistro sa advanced na sistema ng seguridad panlipunan, pag-aaral ng pagiging karapat-dapat, pagsusumite ng dokumento at pagdaragdag ng mga umaasa." },
-        { id:9, icon:"https://f.top4top.io/p_375233rax1.jpg",
+          desc_ar:"التسجيل في نظام الضمان الاجتماعي المطور، دراسة حالة الاستحقاق، وتقديم المستندات وإضافة التابعين." },
+        { id:9, icon:"https://f.top4top.io/p_375233rax1.jpg", category:"municipal",
           ar:"خدمات البلدية", en:"Balady Services", bn:"বালাদি সেবা", ur:"بلدی خدمات", hi:"बलदी सेवाएं", tl:"Mga Serbisyo ng Balady",
-          desc_ar:"إصدار رخص المحلات التجارية، رخص البناء، تصاريح الحفر، وتجديد الرخص عبر منصة بلدي.",
-          desc_en:"Issue commercial shop licenses, building permits, excavation permits, and renew licenses via Balady platform.",
-          desc_bn:"বালাদি প্ল্যাটফর্মের মাধ্যমে বাণিজ্যিক দোকানের লাইসেন্স, বিল্ডিং পারমিট, খনন পারমিট এবং লাইসেন্স পুনর্নবীকরণ ইস্যু করুন।",
-          desc_ur:"بالدی پلیٹ فارم کے ذریعے تجارتی دکانوں کے لائسنس، تعمیراتی اجازت نامے، کھدائی کے اجازت نامے جاری کریں اور لائسنس کی تجدید کریں۔",
-          desc_hi:"बलदी प्लेटफॉर्म के माध्यম से वाणिज्यिक दुकान लाइसेंस, निर्माण परमिट, उत्खनन परमिट जारी करें और लाइसेंस का नवीनीकरण करें।",
-          desc_tl:"Mag-isyu ng mga lisensya sa komersyal na tindahan, mga permiso sa gusali, mga permiso sa paghuhukay, at i-renew ang mga lisensya sa pamamagitan ng Balady platform." },
-        { id:10, icon:"https://h.top4top.io/p_3752jxmik4.jpg",
+          desc_ar:"إصدار رخص المحلات التجارية، رخص البناء، تصاريح الحفر، وتجديد الرخص عبر منصة بلدي." },
+        { id:10, icon:"https://h.top4top.io/p_3752jxmik4.jpg", category:"employment",
           ar:"حافز وساند", en:"Hafiz & Saned", bn:"হাফিজ ও সানেদ", ur:"حافز و ساند", hi:"हाफ़िज़ और सानेद", tl:"Hafiz at Saned",
-          desc_ar:"التسجيل في برنامج حافز للباحثين عن عمل، ومتابعة المهام الأسبوعية، والتسجيل في ساند للتعطل عن العمل.",
-          desc_en:"Registration in Hafiz program for job seekers, follow up on weekly tasks, and registration in Saned for unemployment.",
-          desc_bn:"চাকরি প্রার্থীদের জন্য হাফিজ প্রোগ্রামে নিবন্ধন, সাপ্তাহিক কাজ অনুসরণ, এবং বেকারত্বের জন্য সানেদে নিবন্ধন।",
-          desc_ur:"ملازمت کے متلاشیوں کے لیے حافز پروگرام میں اندراج، ہفتہ وار کاموں کی پیروی، اور بے روزگاری کے لیے ساند میں اندراج۔",
-          desc_hi:"नौकरी चाहने वालों के लिए हाफ़िज़ कार्यक्रम में पंजीकरण, साप्ताहिक कार्यों का पालन, और बेरोजगारी के लिए सानेद में पंजीकरण।",
-          desc_tl:"Pagpaparehistro sa Hafiz program para sa mga naghahanap ng trabaho, sundan ang lingguhang gawain, at pagpaparehistro sa Saned para sa kawalan ng trabaho." },
-        { id:11, icon:"https://g.top4top.io/p_3752st3jm3.jpg",
+          desc_ar:"التسجيل في برنامج حافز للباحثين عن عمل، ومتابعة المهام الأسبوعية، والتسجيل في ساند للتعطل عن العمل." },
+        { id:11, icon:"https://g.top4top.io/p_3752st3jm3.jpg", category:"government",
           ar:"الزكاة والضريبة", en:"Zakat & Tax", bn:"জাকাত ও কর", ur:"زکاۃ و ٹیکس", hi:"ज़कात और कर", tl:"Zakat at Buwis",
-          desc_ar:"تقديم الإقرارات الضريبية، التسجيل في ضريبة القيمة المضافة، إصدار شهادات الزكاة، وتقديم اعتراضات.",
-          desc_en:"Submit tax returns, register for VAT, issue Zakat certificates, and submit objections.",
-          desc_bn:"কর রিটার্ন জমা দিন, ভ্যাটের জন্য নিবন্ধন করুন, জাকাত সার্টিফিকেট ইস্যু করুন এবং আপত্তি জমা দিন।",
-          desc_ur:"ٹیکس ریٹرن جمع کروائیں، وی اے ٹی کے لیے رجسٹر کریں، زکاۃ سرٹیفکیٹ جاری کریں، اور اعتراضات جمع کروائیں۔",
-          desc_hi:"कर रिटर्न जमा करें, वैट के लिए पंजीकरण करें, ज़कात प्रमाणपत्र जारी करें, और आपत्तियाँ जमा करें।",
-          desc_tl:"Magsumite ng mga tax return, magparehistro para sa VAT, mag-isyu ng mga sertipiko ng Zakat, at magsumite ng mga pagtutol." },
-        { id:12, icon:"https://l.top4top.io/p_3752p70yu1.jpg",
+          desc_ar:"تقديم الإقرارات الضريبية، التسجيل في ضريبة القيمة المضافة، إصدار شهادات الزكاة، وتقديم اعتراضات." },
+        { id:12, icon:"https://l.top4top.io/p_3752p70yu1.jpg", category:"banking",
           ar:"البنوك والقروض", en:"Banks & Loans", bn:"ব্যাংক ও ঋণ", ur:"بینک اور قرضے", hi:"बैंक और ऋण", tl:"Mga Bangko at Pautang",
-          desc_ar:"التقديم على التمويل العقاري، التمويل الشخصي، قروض المنشآت الصغيرة والمتوسطة، وفتح حسابات بنكية.",
-          desc_en:"Apply for mortgage financing, personal loans, SME loans, and open bank accounts.",
-          desc_bn:"বন্ধকী অর্থায়ন, ব্যক্তিগত ঋণ, এসএমই ঋণের জন্য আবেদন করুন এবং ব্যাংক অ্যাকাউন্ট খুলুন।",
-          desc_ur:"رہن کی مالی اعانت، ذاتی قرضے، ایس ایم ای قرضوں کے لیے درخواست دیں، اور بینک اکاؤنٹ کھولیں۔",
-          desc_hi:"बंधक वित्तपोषण, व्यक्तिगत ऋण, एसएमई ऋण के लिए आवेदन करें, और बैंक खाते खोलें।",
-          desc_tl:"Mag-aplay para sa mortgage financing, personal loans, SME loans, at magbukas ng mga bank account." },
-        { id:13, icon:"https://f.top4top.io/p_3752w2ge41.jpg",
+          desc_ar:"التقديم على التمويل العقاري، التمويل الشخصي، قروض المنشآت الصغيرة والمتوسطة، وفتح حسابات بنكية." },
+        { id:13, icon:"https://f.top4top.io/p_3752w2ge41.jpg", category:"employment",
           ar:"منصة قوى", en:"Qiwa Platform", bn:"কিউয়া প্ল্যাটফর্ম", ur:"قیوہ پلیٹ فارم", hi:"किवा प्लेटफॉर्म", tl:"Qiwa Platform",
-          desc_ar:"إصدار وتجديد رخص العمل، توثيق عقود العمل، رفع ملفات المنشأة، ومتابعة مؤشرات التوطين.",
-          desc_en:"Issue and renew work permits, authenticate employment contracts, upload establishment files, and follow Saudization indicators.",
-          desc_bn:"ওয়ার্ক পারমিট ইস্যু ও নবায়ন, কর্মসংস্থান চুক্তি প্রমাণীকরণ, প্রতিষ্ঠানের ফাইল আপলোড এবং সৌদিকরণ সূচক অনুসরণ।",
-          desc_ur:"ورک پرمٹ جاری اور تجدید کریں، ملازمت کے معاہدوں کی توثیق کریں، ادارے کی فائلیں اپ لوڈ کریں، اور سعودائزیشن کے اشارے پر عمل کریں۔",
-          desc_hi:"कार्य परमिट जारी और नवीनीकृत करें, रोजगार अनुबंधों को प्रमाणित करें, प्रतिष्ठान फ़ाइलें अपलोड करें, और सऊदीकरण संकेतकों का पालन करें।",
-          desc_tl:"Mag-isyu at mag-renew ng mga work permit, patunayan ang mga kontrata sa pagtatrabaho, mag-upload ng mga file ng establisimyento, at sundan ang mga indicator ng Saudization." },
-        { id:14, icon:"https://c.top4top.io/p_3752mikdb8.jpg",
+          desc_ar:"إصدار وتجديد رخص العمل، توثيق عقود العمل، رفع ملفات المنشأة، ومتابعة مؤشرات التوطين." },
+        { id:14, icon:"https://c.top4top.io/p_3752mikdb8.jpg", category:"employment",
           ar:"القضايا العمالية", en:"Labor Cases", bn:"শ্রম মামলা", ur:"لیبر کیسز", hi:"श्रम मामले", tl:"Mga Kaso sa Paggawa",
-          desc_ar:"رفع الدعاوى العمالية، تقديم التسويات الودية، تمثيل المنشأة أمام المحاكم العمالية، وصياغة العقود.",
-          desc_en:"File labor lawsuits, submit amicable settlements, represent the establishment before labor courts, and draft contracts.",
-          desc_bn:"শ্রম মামলা দায়ের করুন, বন্ধুত্বপূর্ণ নিষ্পত্তি জমা দিন, শ্রম আদালতে প্রতিষ্ঠানের প্রতিনিধিত্ব করুন এবং চুক্তি খসড়া করুন।",
-          desc_ur:"لیبر مقدمہ دائر کریں، دوستانہ تصفیے جمع کروائیں، لیبر کورٹ میں ادارے کی نمائندگی کریں، اور معاہدوں کا مسودہ تیار کریں۔",
-          desc_hi:"श्रम मुकदमे दायर करें, सौहार्दपूर्ण समझौते प्रस्तुत करें, श्रम अदालतों में प्रतिष्ठान का प्रतिनिधित्व करें, और अनुबंधों का मसौदा तैयार करें।",
-          desc_tl:"Maghain ng mga kaso sa paggawa, magsumite ng mga mapayapang kasunduan, kumatawan sa establisimyento sa harap ng mga korte sa paggawa, at mag-draft ng mga kontrata." },
-        { id:15, icon:"https://k.top4top.io/p_3752k1mq41.jpg",
+          desc_ar:"رفع الدعاوى العمالية، تقديم التسويات الودية، تمثيل المنشأة أمام المحاكم العمالية، وصياغة العقود." },
+        { id:15, icon:"https://k.top4top.io/p_3752k1mq41.jpg", category:"government",
           ar:"وزارة الصحة", en:"MOH Services", bn:"স্বাস্থ্য মন্ত্রণালয় সেবা", ur:"وزارت صحت کی خدمات", hi:"स्वास्थ्य मंत्रालय सेवाएं", tl:"Mga Serbisyo ng MOH",
-          desc_ar:"حجز المواعيد في المستشفيات، تجديد تراخيص الممارسين الصحيين، تراخيص المنشآت الطبية، واستخراج التقارير الطبية.",
-          desc_en:"Book hospital appointments, renew health practitioner licenses, medical facility licenses, and extract medical reports.",
-          desc_bn:"হাসপাতালের অ্যাপয়েন্টমেন্ট বুক করুন, স্বাস্থ্য অনুশীলনকারীদের লাইসেন্স পুনর্নবীকরণ করুন, চিকিৎসা সুবিধার লাইসেন্স এবং মেডিকেল রিপোর্ট সংগ্রহ করুন।",
-          desc_ur:"ہسپتال کی اپوائنٹمنٹ بک کریں، ہیلتھ پریکٹیشنرز کے لائسنس کی تجدید کریں، طبی سہولیات کے لائسنس اور میڈیکل رپورٹس حاصل کریں۔",
-          desc_hi:"अस्पताल की अपॉइंटमेंट बुक करें, स्वास्थ्य चिकित्सक लाइसेंस का नवीनीकरण करें, चिकित्सा सुविधा लाइसेंस और मेडिकल रिपोर्ट निकालें।",
-          desc_tl:"Mag-book ng mga appointment sa ospital, i-renew ang mga lisensya ng health practitioner, mga lisensya ng pasilidad na medikal, at kumuha ng mga medikal na ulat." },
-        { id:16, icon:"https://b.top4top.io/p_37525efve6.png",
+          desc_ar:"حجز المواعيد في المستشفيات، تجديد تراخيص الممارسين الصحيين، تراخيص المنشآت الطبية، واستخراج التقارير الطبية." },
+        { id:16, icon:"https://b.top4top.io/p_37525efve6.png", category:"employment",
           ar:"خدمة وظفني", en:"Employment Service", bn:"চাকরি সেবা", ur:"روزگار سروس", hi:"रोजगार सेवा", tl:"Serbisyo sa Trabaho",
-          desc_ar:"تنسيق السير الذاتية، التقديم على الوظائف الحكومية والخاصة، التحضير للمقابلات، وتطوير المهارات المهنية.",
-          desc_en:"CV formatting, applying for government and private jobs, interview preparation, and professional skills development.",
-          desc_bn:"সিভি ফরম্যাটিং, সরকারি ও বেসরকারি চাকরির জন্য আবেদন, সাক্ষাত্কারের প্রস্তুতি এবং পেশাদার দক্ষতা উন্নয়ন।",
-          desc_ur:"سی وی کی فارمیٹنگ، سرکاری اور نجی ملازمتوں کے لیے درخواست دینا، انٹرویو کی تیاری، اور پیشہ ورانہ مہارتوں کی ترقی۔",
-          desc_hi:"सीवी फॉर्मेटिंग, सरकारी और निजी नौकरियों के लिए आवेदन, साक्षात्कार की तैयारी, और पेशेवर कौशल विकास।",
-          desc_tl:"Pag-format ng CV, pag-apply para sa mga trabaho sa gobyerno at pribado, paghahanda sa panayam, at pagpapaunlad ng propesyonal na kasanayan." },
-        { id:17, icon:"https://a.top4top.io/p_3752ojo8n5.jpg",
+          desc_ar:"تنسيق السير الذاتية، التقديم على الوظائف الحكومية والخاصة، التحضير للمقابلات، وتطوير المهارات المهنية." },
+        { id:17, icon:"https://a.top4top.io/p_3752ojo8n5.jpg", category:"employment",
           ar:"منصة أجير", en:"Ajeer Platform", bn:"আজির প্ল্যাটফর্ম", ur:"اجیر پلیٹ فارم", hi:"अजीर प्लेटफॉर्म", tl:"Ajeer Platform",
-          desc_ar:"إصدار تصاريح العمل المؤقت، تنظيم الإعارة بين المنشآت، وتوثيق علاقات العمل الجزئي.",
-          desc_en:"Issue temporary work permits, organize secondment between establishments, and document part-time work relationships.",
-          desc_bn:"অস্থায়ী কাজের অনুমতি জারি করুন, প্রতিষ্ঠানের মধ্যে দ্বিতীয়করণ সংগঠিত করুন এবং খণ্ডকালীন কাজের সম্পর্ক নথিভুক্ত করুন।",
-          desc_ur:"عارضی ورک پرمٹ جاری کریں، اداروں کے درمیان دوسری تعیناتی کو منظم کریں، اور جز وقتی کام کے تعلقات کو دستاویز کریں۔",
-          desc_hi:"अस्थायी कार्य परमिट जारी करें, प्रतिष्ठानों के बीच प्रतिनियुक्ति व्यवस्थित करें, और अंशकालिक कार्य संबंधों का दस्तावेजीकरण करें।",
-          desc_tl:"Mag-isyu ng mga pansamantalang work permit, ayusin ang pagpapahiram sa pagitan ng mga establisimyento, at idokumento ang mga part-time na relasyon sa trabaho." },
-        { id:18, icon:"https://l.top4top.io/p_3752qkr2u4.jpg",
+          desc_ar:"إصدار تصاريح العمل المؤقت، تنظيم الإعارة بين المنشآت، وتوثيق علاقات العمل الجزئي." },
+        { id:18, icon:"https://l.top4top.io/p_3752qkr2u4.jpg", category:"employment",
           ar:"نطاقات", en:"Nitaqat", bn:"নিতাকাত", ur:"نطاقات", hi:"निताकत", tl:"Nitaqat",
-          desc_ar:"تحليل مستوى التوطين، تقديم حلول لرفع نطاق المنشأة، واستشارات التوطين للشركات.",
-          desc_en:"Analyze Saudization level, provide solutions to raise establishment's category, and Saudization consultancy for companies.",
-          desc_bn:"সৌদিকরণের স্তর বিশ্লেষণ করুন, প্রতিষ্ঠানের শ্রেণী বাড়ানোর সমাধান প্রদান করুন এবং কোম্পানিগুলির জন্য সৌদিকরণ পরামর্শ।",
-          desc_ur:"سعودائزیشن کی سطح کا تجزیہ کریں، ادارے کے زمرے کو بڑھانے کے حل فراہم کریں، اور کمپنیوں کے لیے سعودائزیشن کنسلٹنسی۔",
-          desc_hi:"सऊदीकरण स्तर का विश्लेषण करें, प्रतिष्ठान की श्रेणी बढ़ाने के समाधान प्रदान करें, और कंपनियों के लिए सऊदीकरण परामर्श।",
-          desc_tl:"Suriin ang antas ng Saudization, magbigay ng mga solusyon upang itaas ang kategorya ng establisimyento, at Saudization consultancy para sa mga kumpanya." },
-        { id:19, icon:"https://k.top4top.io/p_37523pusg3.jpg",
+          desc_ar:"تحليل مستوى التوطين، تقديم حلول لرفع نطاق المنشأة، واستشارات التوطين للشركات." },
+        { id:19, icon:"https://k.top4top.io/p_37523pusg3.jpg", category:"government",
           ar:"خدمات ريف", en:"Reef Services", bn:"রিফ সেবা", ur:"ریف خدمات", hi:"रीफ सेवाएं", tl:"Mga Serbisyo ng Reef",
-          desc_ar:"دعم الأسر المنتجة، المزارعين، قطاع الثروة الحيوانية والسمكية، والتسجيل في برنامج ريف.",
-          desc_en:"Support for productive families, farmers, livestock and fisheries sector, and registration in Reef program.",
-          desc_bn:"উৎপাদনশীল পরিবার, কৃষক, পশুসম্পদ ও মৎস্য খাতের জন্য সহায়তা এবং রিফ প্রোগ্রামে নিবন্ধন।",
-          desc_ur:"پیداواری خاندانوں، کسانوں، لائیو سٹاک اور ماہی گیری کے شعبے کے لیے معاونت، اور ریف پروگرام میں اندراج۔",
-          desc_hi:"उत्पादक परिवारों, किसानों, पशुधन और मत्स्य क्षेत्र के लिए समर्थन, और रीफ कार्यक्रम में पंजीकरण।",
-          desc_tl:"Suporta para sa mga produktibong pamilya, magsasaka, sektor ng hayop at pangisdaan, at pagpaparehistro sa Reef program." },
-        { id:20, icon:"https://j.top4top.io/p_37525ljhy2.jpg",
+          desc_ar:"دعم الأسر المنتجة، المزارعين، قطاع الثروة الحيوانية والسمكية، والتسجيل في برنامج ريف." },
+        { id:20, icon:"https://j.top4top.io/p_37525ljhy2.jpg", category:"banking",
           ar:"بنك التنمية", en:"Social Development Bank", bn:"সামাজিক উন্নয়ন ব্যাংক", ur:"سماجی ترقیاتی بینک", hi:"सामाजिक विकास बैंक", tl:"Social Development Bank",
-          desc_ar:"تمويل العمل الحر، قروض الزواج، تمويل ترميم المنازل، وقروض المنشآت الناشئة والصغيرة.",
-          desc_en:"Self-employment financing, marriage loans, home renovation financing, and startup and small enterprise loans.",
-          desc_bn:"স্ব-কর্মসংস্থান অর্থায়ন, বিবাহ ঋণ, বাড়ি সংস্কার অর্থায়ন এবং স্টার্টআপ ও ছোট উদ্যোগ ঋণ।",
-          desc_ur:"خود روزگار کی مالی اعانت، شادی کے قرضے، گھر کی تزئین و آرائش کی مالی اعانت، اور اسٹارٹ اپ اور چھوٹے اداروں کے قرضے۔",
-          desc_hi:"स्व-रोजगार वित्तपोषण, विवाह ऋण, गृह नवीनीकरण वित्तपोषण, और स्टार्टअप और छोटे उद्यम ऋण।",
-          desc_tl:"Self-employment financing, mga pautang sa kasal, pagpopondo sa pagsasaayos ng bahay, at mga pautang sa startup at maliit na negosyo." }
+          desc_ar:"تمويل العمل الحر، قروض الزواج، تمويل ترميم المنازل، وقروض المنشآت الناشئة والصغيرة." },
+        { id:21, icon:"https://k.top4top.io/p_3756wbnml1.jpeg", category:"tech",
+          ar:"إنشاء مواقع شخصية", en:"Personal Website Creation", bn:"ব্যক্তিগত ওয়েবসাইট তৈরি", ur:"ذاتی ویب سائٹ بنانا", hi:"व्यक्तिगत वेबसाइट निर्माण", tl:"Paglikha ng Personal na Website",
+          desc_ar:"تصميم وبرمجة مواقع شخصية حديثة متجاوبة مع جميع الأجهزة، متجر إلكتروني صغير، مدونة شخصية، أو صفحة تعريفية. نقدم استضافة مجانية لأول سنة ودعم فني متواصل.",
+          desc_en:"Design and develop modern responsive personal websites, small e-stores, personal blogs, or portfolio pages. Includes free hosting for the first year and ongoing technical support." }
     ];
 
+    // الترجمات (كاملة)
     const translations = {
-        ar: { title: "خدمات الأعمال المتقدمة", sub: "المنصة المتكاملة لجميع الخدمات الحكومية، الشخصية، الشركات والمؤسسات", map: "موقع المحل", switchLang: "تغيير اللغة", btn: "اطلب الآن عبر واتساب", footer: "جميع الحقوق محفوظة © 2026 - خدمات الأعمال المتقدمة", aboutTitle: "من نحن", aboutText: "نقدم حلولاً سريعة وموثوقة لإنجاز معاملاتك الحكومية والخدمات الشخصية وخدمات الشركات بأعلى جودة. فريقنا متخصص في التعقيب والخدمات الرقمية.", orderMsg: "أرغب في الاستفسار عن ", searchPlaceholder: "ابحث عن خدمة...", details: "تفاصيل" },
-        en: { title: "Advanced Business Services", sub: "Integrated platform for government, personal, and corporate services", map: "Location", switchLang: "Change Language", btn: "Order via WhatsApp", footer: "All Rights Reserved © 2026 - Advanced Business Services", aboutTitle: "About Us", aboutText: "We provide fast and reliable solutions for your government and service transactions with the highest quality. Our team specializes in follow-up and digital services.", orderMsg: "I want to inquire about ", searchPlaceholder: "Search for a service...", details: "Details" },
-        bn: { title: "অ্যাডভান্সড বিজনেস সার্ভিসেস", sub: "সরকারি এবং ব্যক্তিগত সেবার জন্য সমন্বিত প্ল্যাটফর্ম", map: "অবস্থান", switchLang: "ভাষা পরিবর্তন", btn: "হোয়াটসঅ্যাপে অর্ডার করুন", footer: "সমস্ত অধিকার সংরক্ষিত © ২০২৬ - অ্যাডভান্সড বিজনেস সার্ভিসেস", aboutTitle: "আমাদের সম্পর্কে", aboutText: "আমরা আপনার সরকারি এবং সেবা লেনদেনের জন্য দ্রুত এবং নির্ভরযোগ্য সমাধান প্রদান করি।", orderMsg: "আমি এই সম্পর্কে জিজ্ঞাসা করতে চাই ", searchPlaceholder: "একটি পরিষেবা সন্ধান করুন...", details: "বিস্তারিত" },
-        ur: { title: "ایڈوانس بزنس سروسز", sub: "سرکاری اور نجی خدمات کے لیے مربوط پلیٹ فارم", map: "مقام", switchLang: "زبان تبدیل کریں", btn: "واٹس ایپ پر رابطہ کریں", footer: "تمام حقوق محفوظ © ۲۰۲۶ - ایڈوانس بزنس سروسز", aboutTitle: "ہمارے بارے میں", aboutText: "ہم آپ کے سرکاری اور خدماتی لین دین کے لیے تیز اور قابل اعتماد حل فراہم کرتے ہیں۔", orderMsg: "میں اس بارے میں پوچھنا چاہتا ہوں ", searchPlaceholder: "سروس تلاش کریں...", details: "تفصیلات" },
-        hi: { title: "उन्नत व्यापार सेवाएँ", sub: "सरकारी और व्यक्तिगत सेवाओं के लिए एकीकृत मंच", map: "स्थान", switchLang: "भाषा बदलें", btn: "व्हाट्सएप पर ऑर्डर करें", footer: "सर्वाधिकार सुरक्षित © 2026 - उन्नत व्यापार सेवाएँ", aboutTitle: "हमारे बारे में", aboutText: "हम आपके सरकारी और सेवा लेनदेन के लिए तेज़ और विश्वसनीय समाधान प्रदान करते हैं।", orderMsg: "मैं इसके बारे में पूछताछ करना चाहता हूं ", searchPlaceholder: "सेवा खोजें...", details: "विवरण" },
-        tl: { title: "Advanced Business Services", sub: "Pinagsamang plataporma para sa mga serbisyo ng gobyerno at personal", map: "Lokasyon", switchLang: "Baguhin ang Wika", btn: "Order sa WhatsApp", footer: "Lahat ng Karapatan ay Nakalaan © 2026 - Advanced Business Services", aboutTitle: "Tungkol sa Amin", aboutText: "Nagbibigay kami ng mabilis at maaasahang solusyon para sa iyong mga transaksyon sa gobyerno at serbisyo.", orderMsg: "Gusto kong magtanong tungkol sa ", searchPlaceholder: "Maghanap ng serbisyo...", details: "Detalye" }
+        ar: { title: "خدمات الأعمال المتقدمة", sub: "المنصة المتكاملة لجميع الخدمات الحكومية، الشخصية، الشركات والمؤسسات", map: "موقع المحل", switchLang: "تغيير اللغة", btn: "اطلب الآن عبر واتساب", footer: "جميع الحقوق محفوظة © 2026 - خدمات الأعمال المتقدمة", aboutTitle: "من نحن", aboutText: "نقدم حلولاً سريعة وموثوقة لإنجاز معاملاتك الحكومية والخدمات الشخصية وخدمات الشركات بأعلى جودة. فريقنا متخصص في التعقيب والخدمات الرقمية.", orderMsg: "أرغب في الاستفسار عن ", searchPlaceholder: "ابحث عن خدمة...", details: "تفاصيل", filterAll: "الكل", filterGovernment: "حكومية", filterBanking: "بنوك وتمويل", filterTech: "تقنية", filterInsurance: "تأمين", filterEmployment: "توظيف", filterMunicipal: "بلدية", results: "نتائج" },
+        en: { title: "Advanced Business Services", sub: "Integrated platform for government, personal, and corporate services", map: "Location", switchLang: "Change Language", btn: "Order via WhatsApp", footer: "All Rights Reserved © 2026 - Advanced Business Services", aboutTitle: "About Us", aboutText: "We provide fast and reliable solutions for your government and service transactions with the highest quality.", orderMsg: "I want to inquire about ", searchPlaceholder: "Search for a service...", details: "Details", filterAll: "All", filterGovernment: "Government", filterBanking: "Banking & Loans", filterTech: "Technology", filterInsurance: "Insurance", filterEmployment: "Employment", filterMunicipal: "Municipal", results: "results" },
+        bn: { title: "অ্যাডভান্সড বিজনেস সার্ভিসেস", sub: "সরকারি এবং ব্যক্তিগত সেবার জন্য সমন্বিত প্ল্যাটফর্ম", map: "অবস্থান", switchLang: "ভাষা পরিবর্তন", btn: "হোয়াটসঅ্যাপে অর্ডার করুন", footer: "সমস্ত অধিকার সংরক্ষিত © ২০২৬ - অ্যাডভান্সড বিজনেস সার্ভিসেস", aboutTitle: "আমাদের সম্পর্কে", aboutText: "আমরা আপনার সরকারি এবং সেবা লেনদেনের জন্য দ্রুত এবং নির্ভরযোগ্য সমাধান প্রদান করি।", orderMsg: "আমি এই সম্পর্কে জিজ্ঞাসা করতে চাই ", searchPlaceholder: "একটি পরিষেবা সন্ধান করুন...", details: "বিস্তারিত", filterAll: "সব", filterGovernment: "সরকারি", filterBanking: "ব্যাংক ও ঋণ", filterTech: "প্রযুক্তি", filterInsurance: "বীমা", filterEmployment: "চাকরি", filterMunicipal: "পৌর", results: "ফলাফল" },
+        ur: { title: "ایڈوانس بزنس سروسز", sub: "سرکاری اور نجی خدمات کے لیے مربوط پلیٹ فارم", map: "مقام", switchLang: "زبان تبدیل کریں", btn: "واٹس ایپ پر رابطہ کریں", footer: "تمام حقوق محفوظ © ۲۰۲۶ - ایڈوانس بزنس سروسز", aboutTitle: "ہمارے بارے میں", aboutText: "ہم آپ کے سرکاری اور خدماتی لین دین کے لیے تیز اور قابل اعتماد حل فراہم کرتے ہیں۔", orderMsg: "میں اس بارے میں پوچھنا چاہتا ہوں ", searchPlaceholder: "سروس تلاش کریں...", details: "تفصیلات", filterAll: "سب", filterGovernment: "سرکاری", filterBanking: "بینک اور قرضے", filterTech: "ٹیکنالوجی", filterInsurance: "انشورنس", filterEmployment: "روزگار", filterMunicipal: "بلدیہ", results: "نتائج" },
+        hi: { title: "उन्नत व्यापार सेवाएँ", sub: "सरकारी और व्यक्तिगत सेवाओं के लिए एकीकृत मंच", map: "स्थान", switchLang: "भाषा बदलें", btn: "व्हाट्सएप पर ऑर्डर करें", footer: "सर्वाधिकार सुरक्षित © 2026 - उन्नत व्यापार सेवाएँ", aboutTitle: "हमारे बारे में", aboutText: "हम आपके सरकारी और सेवा लेनदेन के लिए तेज़ और विश्वसनीय समाधान प्रदान करते हैं।", orderMsg: "मैं इसके बारे में पूछताछ करना चाहता हूं ", searchPlaceholder: "सेवा खोजें...", details: "विवरण", filterAll: "सभी", filterGovernment: "सरकारी", filterBanking: "बैंक और ऋण", filterTech: "प्रौद्योगिकी", filterInsurance: "बीमा", filterEmployment: "रोजगार", filterMunicipal: "नगर निगम", results: "परिणाम" },
+        tl: { title: "Advanced Business Services", sub: "Pinagsamang plataporma para sa mga serbisyo ng gobyerno at personal", map: "Lokasyon", switchLang: "Baguhin ang Wika", btn: "Order sa WhatsApp", footer: "Lahat ng Karapatan ay Nakalaan © 2026 - Advanced Business Services", aboutTitle: "Tungkol sa Amin", aboutText: "Nagbibigay kami ng mabilis at maaasahang solusyon para sa iyong mga transaksyon sa gobyerno at serbisyo.", orderMsg: "Gusto kong magtanong tungkol sa ", searchPlaceholder: "Maghanap ng serbisyo...", details: "Detalye", filterAll: "Lahat", filterGovernment: "Gobyerno", filterBanking: "Bangko at Pautang", filterTech: "Teknolohiya", filterInsurance: "Seguro", filterEmployment: "Trabaho", filterMunicipal: "Munisipyo", results: "resulta" }
     };
 
     let currentLang = 'ar';
+    let currentFilter = 'all';
     let allServices = [...servicesData];
 
-    function setLanguage(lang) {
+    function setLanguage(lang, save = true) {
         currentLang = lang;
         const t = translations[lang];
+        document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : lang);
         document.documentElement.dir = (lang === 'ar' || lang === 'ur') ? 'rtl' : 'ltr';
         document.getElementById('txt-logo-title').innerText = t.title;
         document.getElementById('txt-map-label').innerText = t.map;
@@ -461,17 +361,24 @@
         document.getElementById('about-text').innerText = t.aboutText;
         document.getElementById('searchInput').placeholder = t.searchPlaceholder;
         document.title = t.title + " | ABS";
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            let key = btn.getAttribute('data-filter-key');
+            if (key && t[key]) btn.innerText = t[key];
+        });
         renderServices();
+        if (save) localStorage.setItem('abs_lang', lang);
         document.getElementById('language-screen').classList.add('hide');
     }
 
     function renderServices() {
-        const container = document.getElementById('servicesContainer');
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = allServices.filter(s => {
+        let filtered = allServices.filter(s => {
             let name = (s[currentLang] || s.en).toLowerCase();
-            return name.includes(searchTerm);
+            let matchesSearch = name.includes(searchTerm);
+            let matchesFilter = (currentFilter === 'all') || (s.category === currentFilter);
+            return matchesSearch && matchesFilter;
         });
+        const container = document.getElementById('servicesContainer');
         container.innerHTML = '';
         filtered.forEach(s => {
             let name = s[currentLang] || s.en;
@@ -485,7 +392,12 @@
             `;
             container.appendChild(card);
         });
-        if(filtered.length === 0) container.innerHTML = '<p style="text-align:center; grid-column:1/-1;">' + (currentLang === 'ar' ? 'لا توجد خدمات مطابقة' : 'No matching services') + '</p>';
+        const countSpan = document.getElementById('resultsCount');
+        if (filtered.length === 0) {
+            countSpan.innerHTML = currentLang === 'ar' ? 'لا توجد خدمات مطابقة' : 'No matching services';
+        } else {
+            countSpan.innerHTML = `${filtered.length} ${translations[currentLang].results}`;
+        }
     }
 
     function openModal(service) {
@@ -495,11 +407,61 @@
         document.getElementById('modalTitle').innerText = name;
         document.getElementById('modalDesc').innerText = desc;
         document.getElementById('modalIcon').src = service.icon;
-        document.getElementById('orderLink').href = `https://wa.me/966573805463?text=${encodeURIComponent(translations[currentLang].orderMsg + name)}`;
+        let orderUrl = `https://wa.me/966573805463?text=${encodeURIComponent(translations[currentLang].orderMsg + name)}`;
+        document.getElementById('orderLink').href = orderUrl;
         document.getElementById('serviceModal').style.display = 'flex';
+        document.getElementById('orderLink').onclick = function(e) {
+            alert( currentLang === 'ar' ? 'سيتم فتح واتساب للتواصل' : 'WhatsApp will open for communication' );
+        };
     }
 
     function closeModal() { document.getElementById('serviceModal').style.display = 'none'; }
+
+    function initFilters() {
+        const container = document.getElementById('filtersContainer');
+        const filterKeys = [
+            { key: 'filterAll', value: 'all' },
+            { key: 'filterGovernment', value: 'government' },
+            { key: 'filterBanking', value: 'banking' },
+            { key: 'filterTech', value: 'tech' },
+            { key: 'filterInsurance', value: 'insurance' },
+            { key: 'filterEmployment', value: 'employment' },
+            { key: 'filterMunicipal', value: 'municipal' }
+        ];
+        container.innerHTML = '';
+        filterKeys.forEach(f => {
+            let btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            if (currentFilter === f.value) btn.classList.add('active');
+            btn.setAttribute('data-filter', f.value);
+            btn.setAttribute('data-filter-key', f.key);
+            btn.innerText = translations[currentLang][f.key];
+            btn.onclick = () => {
+                currentFilter = f.value;
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderServices();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function setupScrollTop() {
+        let scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) scrollBtn.style.display = 'flex';
+            else scrollBtn.style.display = 'none';
+        });
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let savedLang = localStorage.getItem('abs_lang');
+    if (savedLang && ['ar','en','bn','ur','hi','tl'].includes(savedLang)) {
+        currentLang = savedLang;
+        setLanguage(currentLang, false);
+    } else {
+        document.getElementById('language-screen').classList.remove('hide');
+    }
 
     document.getElementById('langSwitchBtn').addEventListener('click', () => {
         document.getElementById('language-screen').classList.remove('hide');
@@ -508,7 +470,7 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             let lang = btn.getAttribute('data-lang');
-            if (lang) setLanguage(lang);
+            if (lang) setLanguage(lang, true);
         });
     });
     window.onclick = (e) => { if(e.target == document.getElementById('serviceModal')) closeModal(); };
@@ -519,7 +481,10 @@
         if (header) header.classList.toggle('nav-up', top > lastScroll && top > 100);
         lastScroll = top;
     };
-    document.getElementById('language-screen').classList.remove('hide');
+    initFilters();
+    setupScrollTop();
+    if (!savedLang) document.getElementById('language-screen').classList.remove('hide');
+    else renderServices();
 </script>
 </body>
 </html>
