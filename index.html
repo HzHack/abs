@@ -6,6 +6,9 @@
     <title>ABS | الخدمات المتقدمة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- أيقونة المتصفح (اللوقو الخارجي) نرجعها القديمة -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://h.top4top.io/p_3752ifqqu1.jpeg">
+    <link rel="apple-touch-icon" href="https://h.top4top.io/p_3752ifqqu1.jpeg">
     <style>
         :root {
             --primary-gold: #D4AF37;
@@ -59,7 +62,7 @@
         }
         header.nav-up { transform: translateY(-110%); }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .main-logo { width: 50px; height: 50px; object-fit: contain; }
+        .main-logo { width: 50px; height: 50px; object-fit: contain; border-radius: 12px; background: #fff; padding: 4px; }
         .logo-text h1 { color: var(--primary-gold); font-size: 1.1rem; }
         .header-buttons { display: flex; gap: 10px; }
         .map-btn, .lang-switch-btn {
@@ -80,7 +83,7 @@
         .hero h2 { font-size: 2rem; color: var(--primary-gold); margin-bottom: 10px; }
         .hero p { color: var(--secondary-silver); font-size: 0.9rem; max-width: 600px; margin: 0 auto; }
         
-        /* زر استيراد السيارات (أسفل الخدمات) - يبقى منفصلاً كما طلب المستخدم */
+        /* زر استيراد السيارات (أسفل الخدمات) */
         .import-car-section {
             margin: 30px 5% 50px;
             text-align: center;
@@ -226,12 +229,15 @@
             #scrollTopBtn { bottom: 80px; right: 15px; width: 40px; height: 40px; font-size: 20px; }
             .import-car-btn { font-size: 0.9rem; padding: 8px 20px; }
             .car-img { width: 30px; height: 30px; }
+            .main-logo { width: 40px; height: 40px; }
+            .lang-logo { width: 100px; }
         }
     </style>
 </head>
 <body>
 
 <div id="language-screen">
+    <!-- شاشة اللغة: اللوقو القديم (كما طلب المستخدم) -->
     <img src="https://h.top4top.io/p_3752ifqqu1.jpeg" class="lang-logo" alt="ABS Logo">
     <div class="lang-options">
         <button class="lang-btn" data-lang="ar">العربية</button>
@@ -245,7 +251,8 @@
 
 <header id="main-header">
     <div class="logo-container">
-        <img src="https://h.top4top.io/p_3752ifqqu1.jpeg" alt="ABS Logo" class="main-logo">
+        <!-- الهيدر: اللوقو الجديد -->
+        <img src="https://c.top4top.io/p_3765kr0b10.png" alt="ABS Logo" class="main-logo">
         <div class="logo-text"><h1 id="txt-logo-title">خدمات الأعمال المتقدمة</h1></div>
     </div>
     <div class="header-buttons">
@@ -275,7 +282,7 @@
         <div class="services-grid" id="servicesContainer"></div>
     </section>
 
-    <!-- زر استيراد السيارات من كوريا (أسفل الخدمات كما طلب المستخدم سابقاً) -->
+    <!-- زر استيراد السيارات من كوريا (أسفل الخدمات) -->
     <div class="import-car-section">
         <a href="#" id="importCarLink" class="import-car-btn" target="_blank" rel="noopener noreferrer">
             <img src="https://j.top4top.io/p_3765hlooz1.jpg" alt="car" class="car-img">
@@ -315,7 +322,7 @@
 </footer>
 
 <script>
-    // بيانات الخدمات (تم إضافة خدمات جديدة تحت تصنيف "engineers" لتظهر عند اختيار فلتر هيئة المهندسين)
+    // بيانات الخدمات (مع إضافة خدمات هيئة المهندسين)
     const servicesData = [
         { id:1, icon:"https://i.top4top.io/p_3752s1xzt1.png", category:"government", ar:"خدمات أبشر", en:"Absher Services", bn:"আবশের সেবা", ur:"ابشر خدمات", hi:"अबशेर सेवाएं", tl:"Mga Serbisyo ng Absher", desc_ar:"تفعيل وتحديث البيانات الشخصية، نقل معلومات العمالة، تجديد الإقامات والجوازات، وطباعة سجل الأسرة بكل سهولة.", desc_en:"Activate and update personal data, transfer labor info, renew iqamas and passports, and print family register." },
         { id:2, icon:"https://c.top4top.io/p_3752iuwq82.jpg", category:"government", ar:"وزارة التجارة", en:"Ministry of Commerce", bn:"বাণিজ্য মন্ত্রণালয়", ur:"وزارت تجارت", hi:"वाणिज्य मंत्रालय", tl:"Ministro ng Komersyo", desc_ar:"إصدار وتجديد السجلات التجارية، حجز الأسماء التجارية، تعديل عقود التأسيس، واستخراج شهادات السجل التجاري." },
@@ -338,13 +345,12 @@
         { id:19, icon:"https://k.top4top.io/p_37523pusg3.jpg", category:"government", ar:"خدمات ريف", en:"Reef Services", bn:"রিফ সেবা", ur:"ریف خدمات", hi:"रीफ सेवाएं", tl:"Mga Serbisyo ng Reef", desc_ar:"دعم الأسر المنتجة، المزارعين، قطاع الثروة الحيوانية والسمكية، والتسجيل في برنامج ريف." },
         { id:20, icon:"https://j.top4top.io/p_37525ljhy2.jpg", category:"banking", ar:"بنك التنمية", en:"Social Development Bank", bn:"সামাজিক উন্নয়ন ব্যাংক", ur:"سماجی ترقیاتی بینک", hi:"सामाजिक विकास बैंक", tl:"Social Development Bank", desc_ar:"تمويل العمل الحر، قروض الزواج، تمويل ترميم المنازل، وقروض المنشآت الناشئة والصغيرة." },
         { id:21, icon:"https://k.top4top.io/p_3756wbnml1.jpeg", category:"tech", ar:"إنشاء مواقع شخصية", en:"Personal Website Creation", bn:"ব্যক্তিগত ওয়েবসাইট তৈরি", ur:"ذاتی ویب سائٹ بنانا", hi:"व्यक्तिगत वेबसाइट निर्माण", tl:"Paglikha ng Personal na Website", desc_ar:"تصميم وبرمجة مواقع شخصية حديثة متجاوبة مع جميع الأجهزة، متجر إلكتروني صغير، مدونة شخصية، أو صفحة تعريفية. نقدم استضافة مجانية لأول سنة ودعم فني متواصل.", desc_en:"Design and develop modern responsive personal websites." },
-        // إضافة خدمات خاصة بهيئة المهندسين (تصنيف engineers)
         { id:22, icon:"https://k.top4top.io/p_37651hn8t1.jpg", category:"engineers", ar:"ترخيص المكاتب الهندسية", en:"Engineering Office Licensing", bn:"ইঞ্জিনিয়ারিং অফিস লাইসেন্সিং", ur:"انجینئرنگ آفس لائسنسنگ", hi:"इंजीनियरिंग कार्यालय लाइसेंसिंग", tl:"Paglisensya ng Opisina ng Inhinyero", desc_ar:"إصدار وتجديد تراخيص المكاتب والاستوديوهات الهندسية، اعتماد المهندسين العاملين، وتحديث البيانات لدى هيئة المهندسين السعودية." },
         { id:23, icon:"https://k.top4top.io/p_37651hn8t1.jpg", category:"engineers", ar:"اعتماد المهندسين المحترفين", en:"Professional Engineer Accreditation", bn:"পেশাদার ইঞ্জিনিয়ার স্বীকৃতি", ur:"پیشہ ور انجینئر کی توثیق", hi:"पेशेवर इंजीनियर मान्यता", tl:"Akreditasyon ng Propesyonal na Inhinyero", desc_ar:"التقديم على اختبار الاعتماد المهني، متابعة الطلبات، واستخراج شهادات الاعتماد من هيئة المهندسين." },
         { id:24, icon:"https://k.top4top.io/p_37651hn8t1.jpg", category:"engineers", ar:"توثيق عقود الاستشارات الهندسية", en:"Engineering Consulting Contracts", bn:"ইঞ্জিনিয়ারিং কনসাল্টিং চুক্তি", ur:"انجینئرنگ کنسلٹنگ کے معاہدے", hi:"इंजीनियरिंग परामर्श अनुबंध", tl:"Mga Kontrata sa Konsultasyon sa Inhinyero", desc_ar:"صياغة وتوثيق العقود بين المكاتب الهندسية والعملاء، وحفظ الحقوق وفق أنظمة هيئة المهندسين." }
     ];
 
-    // الترجمات (مع إضافة ترجمة لفلتر المهندسين)
+    // الترجمات
     const translations = {
         ar: { title: "خدمات الأعمال المتقدمة", sub: "المنصة المتكاملة لجميع الخدمات الحكومية، الشخصية، الشركات والمؤسسات", map: "موقع المحل", switchLang: "تغيير اللغة", btn: "اطلب الآن عبر واتساب", footer: "جميع الحقوق محفوظة © 2026 - خدمات الأعمال المتقدمة", aboutTitle: "من نحن", aboutText: "نقدم حلولاً سريعة وموثوقة لإنجاز معاملاتك الحكومية والخدمات الشخصية وخدمات الشركات بأعلى جودة. فريقنا متخصص في التعقيب والخدمات الرقمية.", orderMsg: "أرغب في الاستفسار عن ", searchPlaceholder: "ابحث عن خدمة...", details: "تفاصيل", filterAll: "الكل", filterGovernment: "حكومية", filterBanking: "بنوك وتمويل", filterTech: "تقنية", filterInsurance: "تأمين", filterEmployment: "توظيف", filterMunicipal: "بلدية", filterEngineers: "هيئة المهندسين", results: "نتائج", importCar: "استيراد سيارتك من كوريا", waMsgImport: "أرغب في استيراد سيارة من كوريا، أرجو تزويدي بالتفاصيل" },
         en: { title: "Advanced Business Services", sub: "Integrated platform for government, personal, and corporate services", map: "Location", switchLang: "Change Language", btn: "Order via WhatsApp", footer: "All Rights Reserved © 2026 - Advanced Business Services", aboutTitle: "About Us", aboutText: "We provide fast and reliable solutions for your government and service transactions with the highest quality.", orderMsg: "I want to inquire about ", searchPlaceholder: "Search for a service...", details: "Details", filterAll: "All", filterGovernment: "Government", filterBanking: "Banking & Loans", filterTech: "Technology", filterInsurance: "Insurance", filterEmployment: "Employment", filterMunicipal: "Municipal", filterEngineers: "Engineers Council", results: "results", importCar: "Import Your Car from Korea", waMsgImport: "I am interested in importing a car from Korea, please share the details." },
@@ -455,7 +461,6 @@
             } else {
                 btn.innerText = translations[currentLang][f.key];
             }
-            // سلوك التصفية العادي لجميع الأزرار (لا فتح واتساب مباشر)
             btn.onclick = () => {
                 currentFilter = f.value;
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
